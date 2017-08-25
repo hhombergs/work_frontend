@@ -1,0 +1,33 @@
+{
+  "name": "Flats",
+  "version": "1.0.0",
+  "description": "Workexample for the resume",
+  "main": "index.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hhombergs/work_frontend.git"
+  },
+  "keywords": [
+    "work",
+    "frontend",
+    "resume"
+  ],
+  "author": "Heinz Hombergs",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hhombergs/work_frontend/issues"
+  },
+  "homepage": "https://github.com/hhombergs/work_frontend#readme",
+  "dependencies": {
+    "react": "^15.6.1",
+    "react-bootstrap": "^0.31.2",
+    "react-dom": "^15.6.1",
+    "react-scripts": "1.0.11"
+  }
+}
