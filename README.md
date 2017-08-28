@@ -9,6 +9,5 @@ Requierments
 
 Readme
 ------
-Install http-server via npm install http-server -g or install the corresponding nodejs package for your distribution
-Install via npm install.
-Start via npm run dev.
+Install via make.
+Start via npm start.
