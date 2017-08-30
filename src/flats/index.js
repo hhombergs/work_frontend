@@ -1,6 +1,8 @@
 import React from 'react';
-import {Datagrid, DateField, DateInput, DisabledInput, Edit, EditButton, EmailField, List, SimpleForm, TextField, TextInput, } from 'admin-on-rest';
+import { CardActions } from 'material-ui/Card';
+import {Datagrid, DateField, DateInput, Delete, DisabledInput, Edit, EditButton, EmailField, List, ListButton, SimpleForm, TextField, TextInput, } from 'admin-on-rest';
 import FullTitleField from './FullTitleField';
+import FlatDeleteButton from './FlatDeleteButton';
 
 export const FlatList = (props) => (
     <List {...props} title="Alle Wohnungen" sort={{ field: 'enter_date', order: 'DESC' }} perPage={25}>
@@ -12,15 +14,22 @@ export const FlatList = (props) => (
             <TextField source="city" label="Ort" />
             <TextField source="country" label="Land" />
             <EmailField source="contact_email" label="Kontakt Email" />
-            <EditButton containerElement={<FullUrl />} />
+            <EditButton />
         </Datagrid>
     </List>
 )
 
+const FlatEditActions = ({ basePath, data }) => (
+    <CardActions style={{ float: 'right' }}>
+        <ListButton basePath={basePath} />
+        <FlatDeleteButton basePath={basePath} record={data} />
+    </CardActions>
+);
+
 const FlatTitle = ({ record }) => record ? <FullTitleField record={record} size={32} /> : null;
 
 export const FlatEdit = (props) => (
-    <Edit title={<FlatTitle />} {...props}>
+    <Edit actions={<FlatEditActions />} title={<FlatTitle />} {...props}>
         <SimpleForm>
             <DisabledInput label="Id" source="id" />
             <DateInput source="enter_date" label="Einzugsdatum" />
