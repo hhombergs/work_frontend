@@ -10,6 +10,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { DELETE, showNotification as showNotificationAction } from 'admin-on-rest';
 import FlatButton from 'material-ui/FlatButton';
+import ActionDelete from 'material-ui/svg-icons/action/delete';
 import { push as pushAction } from 'react-router-redux';
 import restClient from '../restClient';
 
@@ -33,7 +34,7 @@ class FlatDeleteButton extends Component {
     }
 
     render() {
-        return <FlatButton label="Löschen" onClick={this.handleClick} />;
+        return <FlatButton secondary label="Löschen" onClick={this.handleClick} icon={<ActionDelete />} />;
     }
 }
 

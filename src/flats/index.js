@@ -1,6 +1,6 @@
 import React from 'react';
 import { CardActions } from 'material-ui/Card';
-import {Datagrid, DateField, DateInput, Delete, DisabledInput, Edit, EditButton, EmailField, List, ListButton, SimpleForm, TextField, TextInput, } from 'admin-on-rest';
+import {Datagrid, DateField, DateInput, Delete, DisabledInput, Edit, EditButton, EmailField, List, ListButton, RefreshButton, SimpleForm, TextField, TextInput, } from 'admin-on-rest';
 import FullTitleField from './FullTitleField';
 import FlatDeleteButton from './FlatDeleteButton';
 
@@ -22,6 +22,7 @@ export const FlatList = (props) => (
 const FlatEditActions = ({ basePath, data }) => (
     <CardActions style={{ float: 'right' }}>
         <ListButton basePath={basePath} />
+        <RefreshButton basePath={basePath} />
         <FlatDeleteButton basePath={basePath} record={data} />
     </CardActions>
 );
