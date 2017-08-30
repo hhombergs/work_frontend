@@ -1,6 +1,6 @@
 import React from 'react';
 import { CardActions } from 'material-ui/Card';
-import {Datagrid, DateField, DateInput, Delete, DisabledInput, Edit, EditButton, EmailField, List, ListButton, RefreshButton, SimpleForm, TextField, TextInput, } from 'admin-on-rest';
+import {Create, Datagrid, DateField, DateInput, Delete, DisabledInput, Edit, EditButton, EmailField, List, ListButton, RefreshButton, SimpleForm, TextField, TextInput, } from 'admin-on-rest';
 import FullTitleField from './FullTitleField';
 import FlatDeleteButton from './FlatDeleteButton';
 
@@ -27,6 +27,19 @@ const FlatEditActions = ({ basePath, data }) => (
     </CardActions>
 );
 
+export const FlatCreate = (props) => (
+    <Create {...props}>
+        <SimpleForm>
+            <DateInput source="enter_date" label="Einzugsdatum" validation={{ required: true }} />
+            <TextInput source="street" label="Strasse" validation={{ required: true }} />
+            <TextInput source="zip" label="PLZ" validation={{ required: true }} />
+            <TextInput source="city" label="Ort" validation={{ required: true }} />
+            <TextInput source="country" label="Land" validation={{ required: true }} />
+            <TextInput source="contact_email" label="Kontakt Email" type="email" validation={{ email: true, required: true }} />
+        </SimpleForm>
+    </Create>
+);
+
 const FlatTitle = ({ record }) => record ? <FullTitleField record={record} size={32} /> : null;
 
 export const FlatEdit = (props) => (
@@ -42,3 +55,4 @@ export const FlatEdit = (props) => (
         </SimpleForm>
     </Edit>
 );
+
