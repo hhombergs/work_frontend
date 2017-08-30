@@ -12,7 +12,7 @@ export const FlatList = (props) => (
             <TextField source="city" label="Ort" />
             <TextField source="country" label="Land" />
             <EmailField source="contact_email" label="Kontakt Email" />
-            <EditButton />
+            <EditButton containerElement={<FullUrl />} />
         </Datagrid>
     </List>
 )
