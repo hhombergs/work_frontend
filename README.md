@@ -10,4 +10,4 @@ Requierments
 Readme
 ------
 Install via make.
-Start via npm start.
+Start via npm run dev.
