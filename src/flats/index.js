@@ -2,7 +2,6 @@ import React from 'react';
 import { CardActions } from 'material-ui/Card';
 import {Create, Datagrid, DateField, DateInput, Delete, DisabledInput, Edit, EditButton, EmailField, List, ListButton, RefreshButton, SimpleForm, TextField, TextInput, } from 'admin-on-rest';
 import FullTitleField from './FullTitleField';
-import FlatDeleteButton from './FlatDeleteButton';
 
 export const FlatList = (props) => (
     <List {...props} title="Alle Wohnungen" sort={{ field: 'enter_date', order: 'DESC' }} perPage={25}>
@@ -17,14 +16,6 @@ export const FlatList = (props) => (
         </Datagrid>
     </List>
 )
-
-const FlatEditActions = ({ basePath, data }) => (
-    <CardActions style={{ float: 'right' }}>
-        <ListButton basePath={basePath} />
-        <RefreshButton basePath={basePath} />
-        <FlatDeleteButton basePath={basePath} record={data} />
-    </CardActions>
-);
 
 export const FlatCreate = (props) => (
     <Create {...props}>
@@ -42,7 +33,7 @@ export const FlatCreate = (props) => (
 const FlatTitle = ({ record }) => record ? <FullTitleField record={record} size={32} /> : null;
 
 export const FlatEdit = (props) => (
-    <Edit actions={<FlatEditActions />} title={<FlatTitle />} {...props}>
+    <Edit title={<FlatTitle />} {...props}>
         <SimpleForm>
             <DateInput source="enter_date" label="Einzugsdatum" />
             <TextInput source="street" label="Strasse" />

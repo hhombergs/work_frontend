@@ -2,7 +2,7 @@
 * @Author: hhombergs
 * @Date:   2017-08-29
 * @Last Modified by:   hhombergs
-* @Last Modified time: 2017-08-29
+* @Last Modified time: 2017-08-31
 */
 
 module.exports = {
@@ -28,7 +28,7 @@ module.exports = {
             edit: '%{name} #%{id}',
             show: '%{name} #%{id}',
             create: '%{name} erstellen',
-            delete: '%{name} #%{id} löschen',
+            delete: '%{name} %{idd} löschen',
         },
         input: {
             image: {
