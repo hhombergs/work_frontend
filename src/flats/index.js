@@ -1,6 +1,6 @@
 import React from 'react';
 import { CardActions } from 'material-ui/Card';
-import {Create, Datagrid, DateField, DateInput, Delete, DisabledInput, Edit, EditButton, EmailField, List, ListButton, RefreshButton, SimpleForm, TextField, TextInput, } from 'admin-on-rest';
+import {Create, Datagrid, DateField, DateInput, DeleteButton, DisabledInput, Edit, EditButton, EmailField, List, ListButton, RefreshButton, Show,  ShowButton, SimpleForm, SimpleShowLayout, TextField, TextInput, } from 'admin-on-rest';
 import FullTitleField from './FullTitleField';
 
 export const FlatList = (props) => (
@@ -12,7 +12,9 @@ export const FlatList = (props) => (
             <TextField source="city" label="Ort" />
             <TextField source="country" label="Land" />
             <EmailField source="contact_email" label="Kontakt Email" />
+            <ShowButton />
             <EditButton />
+            <DeleteButton />
         </Datagrid>
     </List>
 )
@@ -45,3 +47,15 @@ export const FlatEdit = (props) => (
     </Edit>
 );
 
+export const FlatShow = (props) => (
+    <Show title={<FlatTitle />} {...props}>
+        <SimpleShowLayout>
+            <DateField source="enter_date" label="Einzugsdatum" />
+            <TextField source="street" label="Strasse" />
+            <TextField source="zip" label="PLZ" />
+            <TextField source="city" label="Ort" />
+            <TextField source="country" label="Land" />
+            <TextField source="contact_email" type="email" label="Kontakt Email"/>
+        </SimpleShowLayout>
+    </Show>
+);

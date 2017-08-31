@@ -4,7 +4,7 @@ import { Admin, Resource} from 'admin-on-rest';
 import myApiRestClient from './restClient';
 import './App.css';
 import germanMessages from './i18n';
-import { FlatList, FlatEdit, FlatCreate } from './flats';
+import { FlatList, FlatEdit, FlatCreate, FlatShow } from './flats';
 import FlatDelete from './flats/FlatDelete';
 
 const messages = {
@@ -15,7 +15,7 @@ class App extends Component {
     render() {
         return(
             <Admin restClient={myApiRestClient} title="Wohnungen" locale="de" messages={messages}>
-                <Resource name="flats" options={{ label: 'Wohnungen' }} list={FlatList} edit={FlatEdit} create={FlatCreate} remove={FlatDelete} />
+                <Resource name="flats" options={{ label: 'Wohnungen' }} list={FlatList} edit={FlatEdit} create={FlatCreate} show={FlatShow} remove={FlatDelete} />
             </Admin>
         );
     };
