@@ -19,10 +19,19 @@ export const FlatList = (props) => (
     </List>
 )
 
+const dateString = v => {
+  if (isNaN(v)) return;
+
+  let parsedDate = new Date(v);
+  let adjustedDate = new Date(parsedDate.getTime() - parsedDate.getTimezoneOffset() * 60000);
+
+  return adjustedDate;
+};
+
 export const FlatCreate = (props) => (
     <Create title="Wohnung anlegen" {...props}>
         <SimpleForm redirect="list">
-            <DateInput source="enter_date" label="Einzugsdatum" validation={{ required: true }} />
+            <DateInput source="enter_date" label="Einzugsdatum" validation={{ required: true }} parse={dateString} />
             <TextInput source="street" label="Strasse" validation={{ required: true }} />
             <TextInput source="zip" label="PLZ" validation={{ required: true }} />
             <TextInput source="city" label="Ort" validation={{ required: true }} />
@@ -37,7 +46,7 @@ const FlatTitle = ({ record }) => record ? <FullTitleField record={record} size=
 export const FlatEdit = (props) => (
     <Edit title={<FlatTitle />} {...props}>
         <SimpleForm>
-            <DateInput source="enter_date" label="Einzugsdatum" />
+            <DateInput source="enter_date" label="Einzugsdatum" parse={dateString} />
             <TextInput source="street" label="Strasse" />
             <TextInput source="zip" label="PLZ" />
             <TextInput source="city" label="Ort" />

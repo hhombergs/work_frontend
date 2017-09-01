@@ -16,6 +16,7 @@ const API_URL = 'http://127.0.0.1:8000';
  * @returns {Object} { url, options } The HTTP request parameters
  */
 const convertRESTRequestToHTTP = (type, resource, params) => {
+    console.log(params);
     let url = '';
     const { queryParameters } = fetchUtils;
     const options = {};
