@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "./node_modules/.bin/react-scripts start",
-    "dev": "http-server -a 127.0.0.1 -p 3000 & ./node_modules/.bin/webpack -w ",
+    "dev": "http-server -a 127.0.0.1 -p 3000 & ./node_modules/.bin/webpack -w",
     "build": "./node_modules/.bin/webpack",
     "test": "./node_modules/.bin/react-scripts test --env=jsdom",
     "eject": "./node_modules/.bin/react-scripts eject",

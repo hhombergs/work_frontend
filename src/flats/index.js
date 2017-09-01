@@ -20,8 +20,8 @@ export const FlatList = (props) => (
 )
 
 export const FlatCreate = (props) => (
-    <Create {...props}>
-        <SimpleForm>
+    <Create title="Wohnung anlegen" {...props}>
+        <SimpleForm redirect="list">
             <DateInput source="enter_date" label="Einzugsdatum" validation={{ required: true }} />
             <TextInput source="street" label="Strasse" validation={{ required: true }} />
             <TextInput source="zip" label="PLZ" validation={{ required: true }} />
