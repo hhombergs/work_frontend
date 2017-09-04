@@ -2,7 +2,7 @@
 * @Author: hhombergs
 * @Date:   2017-08-30
 * @Last Modified by:   hhombergs
-* @Last Modified time: 2017-08-30
+* @Last Modified time: 2017-09-04
 */
 
 import { GET_LIST, GET_ONE, CREATE, UPDATE, DELETE, fetchUtils } from 'admin-on-rest';
@@ -23,10 +23,13 @@ const convertRESTRequestToHTTP = (type, resource, params) => {
     case GET_LIST: {
         const { page, perPage } = params.pagination;
         const { field, order } = params.sort;
+        const { id } = params.filter;
         const query = {
-            sort: JSON.stringify([field, order]),
-            range: JSON.stringify([(page - 1) * perPage, page * (perPage - 1)]),
-            filter: JSON.stringify(params.filter),
+            _sort: field,
+            _order: order,
+            _start: (page - 1) * perPage,
+            _end: page * perPage,
+            _filterid: id,
         };
         url = `${API_URL}/${resource}?${queryParameters(query)}`;
         break;
