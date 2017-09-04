@@ -2,7 +2,7 @@ import React from 'react';
 import { CardActions } from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 import NavigationRefresh from 'material-ui/svg-icons/navigation/refresh';
-import {DateField, DateInput, DeleteButton, Edit, EditButton, EmailField, RefreshButton, Show,  ShowButton, SimpleForm, SimpleShowLayout, TextField, TextInput, } from 'admin-on-rest';
+import {Datagrid, DateField, DateInput, DeleteButton, Edit, EditButton, EmailField, List , RefreshButton, Show,  ShowButton, SimpleForm, SimpleShowLayout, TextField, TextInput, } from 'admin-on-rest';
 import FullTitleField from './FullTitleField';
 
 const cardActionStyle = {
@@ -28,6 +28,9 @@ const FlatShowActions = ({ basePath, data, refresh }) => (
     </CardActions>
 );
 
+const idFilter = () => {
+    return sessionStorage.getItem('token');
+};
 
 const dateString = v => {
   if (isNaN(v)) return;
@@ -37,6 +40,22 @@ const dateString = v => {
 
   return adjustedDate;
 };
+
+export const FlatList = (props) => (
+    <List {...props} title="Wohnung" sort={{ field: 'enter_date', order: 'DESC' }} perPage={25} filter={{id: sessionStorage.getItem('token')}}>
+        <Datagrid>
+            <DateField source="enter_date" options={{day: '2-digit', month:'2-digit', year: 'numeric'}} label="Einzugsdatum" />
+            <TextField source="street" label="Straße" />
+            <TextField source="zip" label="Postleitzahl" />
+            <TextField source="city" label="Ort" />
+            <TextField source="country" label="Land" />
+            <EmailField source="contact_email" label="Kontakt Email" />
+            <ShowButton />
+            <EditButton />
+            <DeleteButton />
+        </Datagrid>
+    </List>
+);
 
 const FlatTitle = ({ record }) => record ? <FullTitleField record={record} size={32} /> : null;
 
