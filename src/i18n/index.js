@@ -2,7 +2,7 @@
 * @Author: hhombergs
 * @Date:   2017-08-29
 * @Last Modified by:   hhombergs
-* @Last Modified time: 2017-08-31
+* @Last Modified time: 2017-09-04
 */
 
 module.exports = {
@@ -52,7 +52,7 @@ module.exports = {
             no_results: 'Keine Ergebnisse',
         },
         auth: {
-            username: 'Nutzername',
+            username: 'Wohnungsnummer',
             password: 'Passwort',
             sign_in: 'Anmelden',
             sign_in_error: 'Fehler bei der Anmeldung',
