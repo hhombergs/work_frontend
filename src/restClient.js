@@ -72,10 +72,9 @@ const convertHTTPResponseToREST = (response, type, resource, params) => {
             data: json.map(x => x),
             total: parseInt(headers.get('x-total-count').split('/').pop(), 10),
         };
-    case CREATE: {
+    case CREATE:
         const { result } = params.data;
         return { data: { result, id: json.id } };
-    }
     default:
         return { data: json };
     }

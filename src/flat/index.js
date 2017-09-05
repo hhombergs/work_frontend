@@ -2,7 +2,7 @@ import React from 'react';
 import { CardActions } from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 import NavigationRefresh from 'material-ui/svg-icons/navigation/refresh';
-import {Datagrid, DateField, DateInput, DeleteButton, Edit, EditButton, EmailField, List , RefreshButton, Show,  ShowButton, SimpleForm, SimpleShowLayout, TextField, TextInput, } from 'admin-on-rest';
+import {Datagrid, DateField, DateInput, DeleteButton, Edit, EditButton, EmailField, List , Show,  ShowButton, SimpleForm, SimpleShowLayout, TextField, TextInput, } from 'admin-on-rest';
 import FullTitleField from './FullTitleField';
 
 const cardActionStyle = {
@@ -27,10 +27,6 @@ const FlatShowActions = ({ basePath, data, refresh }) => (
         <FlatButton primary label="Refresh" onClick={refresh} icon={<NavigationRefresh />} />
     </CardActions>
 );
-
-const idFilter = () => {
-    return sessionStorage.getItem('token');
-};
 
 const dateString = v => {
   if (isNaN(v)) return;

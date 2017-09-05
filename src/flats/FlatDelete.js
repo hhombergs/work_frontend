@@ -2,20 +2,19 @@
 * @Author: hhombergs
 * @Date:   2017-08-31
 * @Last Modified by:   hhombergs
-* @Last Modified time: 2017-08-31
+* @Last Modified time: 2017-09-05
 */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Card, CardTitle, CardText, CardActions } from 'material-ui/Card';
+import { Card, CardText, CardActions } from 'material-ui/Card';
 import { Toolbar, ToolbarGroup } from 'material-ui/Toolbar';
 import { push as pushAction } from 'react-router-redux';
 import RaisedButton from 'material-ui/RaisedButton';
 import ActionCheck from 'material-ui/svg-icons/action/check-circle';
 import AlertError from 'material-ui/svg-icons/alert/error-outline';
 import compose from 'recompose/compose';
-import inflection from 'inflection';
-import { DELETE, showNotification as showNotificationAction, ViewTitle, Title, ListButton, translate} from 'admin-on-rest';
+import { DELETE, showNotification as showNotificationAction, ViewTitle, Title, ListButton, translate } from 'admin-on-rest';
 import restClient from '../restClient';
 
 const styles = {
@@ -37,7 +36,7 @@ class FlatDelete extends Component {
     }
 
     handleSubmit(event) {
-        //event.preventDefault();
+        event.preventDefault();
         const { push, data, showNotification } = this.props;
         restClient(DELETE, 'flats', { id: data.id, data: data })
             .then(() => {
@@ -46,7 +45,7 @@ class FlatDelete extends Component {
             })
             .catch((e) => {
                 console.error(e);
-                showNotification('Fehler: Wohnung nicht gelöscht', 'warning')
+                showNotification('Fehler: Wohnung nicht gelöscht', 'warning');
             });
     }
 
@@ -55,7 +54,7 @@ class FlatDelete extends Component {
     }
 
     render() {
-        const { title, id, data, isLoading, resource, translate } = this.props;
+        const { title, data, isLoading, resource, translate } = this.props;
         const basePath = this.getBasePath();
 
         const resourceName = translate(`resources.${resource}.name`, {
@@ -74,7 +73,7 @@ class FlatDelete extends Component {
 
         return (
             <div>
-                <Card style={{ opacity: isLoading ? .8 : 1 }}>
+                <Card style={{ opacity: isLoading ? 0.8 : 1 }}>
                     <CardActions style={styles.actions}>
                         <ListButton basePath={basePath} />
                     </CardActions>
@@ -130,10 +129,9 @@ function mapStateToProps(state, props) {
 const enhance = compose(
     connect(
         mapStateToProps,
-        {showNotification: showNotificationAction, push: pushAction}
+        { showNotification: showNotificationAction, push: pushAction },
     ),
     translate,
 );
 
 export default enhance(FlatDelete);
-//export default FlatDelete;

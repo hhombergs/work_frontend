@@ -1,7 +1,6 @@
 import 'babel-polyfill';
 import React from 'react';
 import { Admin, Resource } from 'admin-on-rest';
-
 import myApiRestClient from './restClient';
 import './App.css';
 import germanMessages from './i18n';

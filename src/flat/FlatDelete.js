@@ -2,19 +2,18 @@
 * @Author: hhombergs
 * @Date:   2017-08-31
 * @Last Modified by:   hhombergs
-* @Last Modified time: 2017-09-01
+* @Last Modified time: 2017-09-05
 */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Card, CardTitle, CardText, CardActions } from 'material-ui/Card';
+import { Card, CardText, CardActions } from 'material-ui/Card';
 import { Toolbar, ToolbarGroup } from 'material-ui/Toolbar';
 import { push as pushAction } from 'react-router-redux';
 import RaisedButton from 'material-ui/RaisedButton';
 import ActionCheck from 'material-ui/svg-icons/action/check-circle';
 import AlertError from 'material-ui/svg-icons/alert/error-outline';
 import compose from 'recompose/compose';
-import inflection from 'inflection';
 import { DELETE, showNotification as showNotificationAction, ViewTitle, Title, ListButton, translate} from 'admin-on-rest';
 import restClient from '../restClient';
 
@@ -55,7 +54,7 @@ class FlatDelete extends Component {
     }
 
     render() {
-        const { title, id, data, isLoading, resource, translate } = this.props;
+        const { title, data, isLoading, resource, translate } = this.props;
         const basePath = this.getBasePath();
 
         const resourceName = translate(`resources.${resource}.name`, {
