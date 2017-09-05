@@ -2,7 +2,7 @@
 * @Author: hhombergs
 * @Date:   2017-09-04
 * @Last Modified by:   hhombergs
-* @Last Modified time: 2017-09-04
+* @Last Modified time: 2017-09-05
 */
 
 import { AUTH_LOGIN, AUTH_LOGOUT, AUTH_ERROR, AUTH_CHECK } from 'admin-on-rest';
@@ -14,9 +14,9 @@ export default (type, params) => {
             method: 'POST',
             body: JSON.stringify({ username, password }),
             headers: new Headers({ 'Content-Type': 'application/json' }),
-        })
+        });
         return fetch(request)
-            .then(response => {
+            .then((response) => {
                 if (response.status < 200 || response.status >= 300) {
                     throw new Error(response.statusText);
                 }
@@ -42,4 +42,4 @@ export default (type, params) => {
         return sessionStorage.getItem('token') ? Promise.resolve() : Promise.reject();
     }
     return Promise.reject('Unkown method');
-}
+};
