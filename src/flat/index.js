@@ -2,7 +2,8 @@ import React from 'react';
 import { CardActions } from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 import NavigationRefresh from 'material-ui/svg-icons/navigation/refresh';
-import {Datagrid, DateField, DateInput, DeleteButton, Edit, EditButton, EmailField, List , Show,  ShowButton, SimpleForm, SimpleShowLayout, TextField, TextInput, } from 'admin-on-rest';
+import PropTypes from 'prop-types';
+import { Datagrid, DateField, DateInput, DeleteButton, Edit, EditButton, EmailField, List, Show, ShowButton, SimpleForm, SimpleShowLayout, TextField, TextInput } from 'admin-on-rest';
 import FullTitleField from './FullTitleField';
 
 const cardActionStyle = {
@@ -19,6 +20,11 @@ const FlatEditActions = ({ basePath, data, refresh }) => (
     </CardActions>
 );
 
+FlatEditActions.propTypes = {
+    basePath: PropTypes.string,
+    data: PropTypes.object,
+    refresh: PropTypes.function,
+};
 
 const FlatShowActions = ({ basePath, data, refresh }) => (
     <CardActions style={cardActionStyle}>
@@ -28,19 +34,23 @@ const FlatShowActions = ({ basePath, data, refresh }) => (
     </CardActions>
 );
 
-const dateString = v => {
-  if (isNaN(v)) return;
-
-  let parsedDate = new Date(v);
-  let adjustedDate = new Date(parsedDate.getTime() - parsedDate.getTimezoneOffset() * 60000);
-
-  return adjustedDate;
+FlatShowActions.propTypes = {
+    basePath: PropTypes.string,
+    data: PropTypes.object,
+    refresh: PropTypes.function,
 };
 
-export const FlatList = (props) => (
-    <List {...props} title="Wohnung" sort={{ field: 'enter_date', order: 'DESC' }} perPage={25} filter={{id: sessionStorage.getItem('token')}}>
+const dateString = (v) => {
+    if (isNaN(v)) return;
+    const parsedDate = new Date(v);
+    const adjustedDate = new Date(parsedDate.getTime() - (parsedDate.getTimezoneOffset() * 60000));
+    return adjustedDate;
+};
+
+export const FlatList = props => (
+    <List {...props} title="Wohnung" sort={{ field: 'enter_date', order: 'DESC' }} perPage={25} filter={{ id: sessionStorage.getItem('token') }}>
         <Datagrid>
-            <DateField source="enter_date" options={{day: '2-digit', month:'2-digit', year: 'numeric'}} label="Einzugsdatum" />
+            <DateField source="enter_date" options={{ day: '2-digit', month: '2-digit', year: 'numeric' }} label="Einzugsdatum" />
             <TextField source="street" label="Straße" />
             <TextField source="zip" label="Postleitzahl" />
             <TextField source="city" label="Ort" />
@@ -53,9 +63,18 @@ export const FlatList = (props) => (
     </List>
 );
 
-const FlatTitle = ({ record }) => record ? <FullTitleField record={record} size={32} /> : null;
+const FlatTitle = ({ record }) => {
+    if (!record) {
+        return null;
+    }
+    return <FullTitleField record={record} size={32} />;
+};
 
-export const FlatEdit = (props) => (
+FlatTitle.propTypes = {
+    record: PropTypes.object,
+};
+
+export const FlatEdit = props => (
     <Edit actions={<FlatEditActions />} title={<FlatTitle />} {...props}>
         <SimpleForm redirect="show">
             <DateInput source="enter_date" label="Einzugsdatum" parse={dateString} />
@@ -68,7 +87,7 @@ export const FlatEdit = (props) => (
     </Edit>
 );
 
-export const FlatShow = (props) => (
+export const FlatShow = props => (
     <Show actions={<FlatShowActions />} title={<FlatTitle />} {...props}>
         <SimpleShowLayout>
             <DateField source="enter_date" label="Einzugsdatum" />
@@ -76,8 +95,7 @@ export const FlatShow = (props) => (
             <TextField source="zip" label="PLZ" />
             <TextField source="city" label="Ort" />
             <TextField source="country" label="Land" />
-            <TextField source="contact_email" type="email" label="Kontakt Email"/>
+            <TextField source="contact_email" type="email" label="Kontakt Email" />
         </SimpleShowLayout>
     </Show>
 );
-

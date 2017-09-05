@@ -14,7 +14,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import ActionCheck from 'material-ui/svg-icons/action/check-circle';
 import AlertError from 'material-ui/svg-icons/alert/error-outline';
 import compose from 'recompose/compose';
-import { DELETE, showNotification as showNotificationAction, ViewTitle, Title, ListButton, translate} from 'admin-on-rest';
+import { DELETE, showNotification as showNotificationAction, ViewTitle, Title, ListButton, translate } from 'admin-on-rest';
 import restClient from '../restClient';
 
 const styles = {
@@ -36,7 +36,7 @@ class FlatDelete extends Component {
     }
 
     handleSubmit(event) {
-        //event.preventDefault();
+        event.preventDefault();
         const { push, data, showNotification } = this.props;
         restClient(DELETE, 'flat', { id: data.id, data: data })
             .then(() => {
@@ -45,7 +45,7 @@ class FlatDelete extends Component {
             })
             .catch((e) => {
                 console.error(e);
-                showNotification('Fehler: Wohnung nicht gelöscht', 'warning')
+                showNotification('Fehler: Wohnung nicht gelöscht', 'warning');
             });
     }
 
@@ -73,7 +73,7 @@ class FlatDelete extends Component {
 
         return (
             <div>
-                <Card style={{ opacity: isLoading ? .8 : 1 }}>
+                <Card style={{ opacity: isLoading ? 0.8 : 1 }}>
                     <CardActions style={styles.actions}>
                         <ListButton basePath={basePath} />
                     </CardActions>
@@ -129,7 +129,7 @@ function mapStateToProps(state, props) {
 const enhance = compose(
     connect(
         mapStateToProps,
-        {showNotification: showNotificationAction, push: pushAction}
+        { showNotification: showNotificationAction, push: pushAction },
     ),
     translate,
 );
