@@ -14,11 +14,15 @@
     "extends": "airbnb",
     "parser": "babel-eslint",
     "plugins": [
+        "babel",
         "flowtype",
         "react"
     ],
     "rules": {
         "strict": 0,
+        "arrow-body-style": ["off", { "requireReturnForObjectLiteral": true }],
+        "arrow-parens": [2, "as-needed", { "requireForBlockBody": true }],
+        "consistent-return": 0,
         "flowtype/boolean-style": [
           2,
           "boolean"
@@ -39,11 +43,17 @@
           2,
           "comma"
         ],
-        "flowtype/require-parameter-type": 2,
+        "flowtype/require-parameter-type": [
+            0,
+            {
+              "excludeArrowFunctions": true
+            }
+        ],
         "flowtype/require-return-type": [
-          2,
+          0,
           "always",
           {
+            "excludeArrowFunctions": true,
             "annotateUndefined": "never"
           }
         ],
@@ -76,9 +86,16 @@
         "flowtype/valid-syntax": 1,
         "indent": ["warn", 4],
         "max-len": ["off"],
+        "prefer-template": 0,
+        "no-shadow": 0,
+        "object-shorthand": 0,
+        "no-console": 0,
+        "react/forbid-prop-types": 0,
         "react/jsx-indent": ["warn", 4],
         "react/jsx-indent-props": ["warn", 4],
-        "react/jsx-filename-extension": ["off"]
+        "react/jsx-filename-extension": ["off"],
+        "react/require-default-props": 0,
+        "react/no-unused-prop-types": 0
     },
     "settings": {
         "flowtype": {
