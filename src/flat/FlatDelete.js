@@ -38,10 +38,10 @@ class FlatDelete extends Component {
     handleSubmit(event) {
         event.preventDefault();
         const { push, data, showNotification } = this.props;
-        restClient(DELETE, 'flat', { id: data.id, data: data })
+        restClient(DELETE, 'flato', { id: data.id, data: data })
             .then(() => {
                 showNotification('Wohnung gelöscht');
-                push('/flat');
+                push('/flato');
             })
             .catch((e) => {
                 console.error(e);
