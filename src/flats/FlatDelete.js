@@ -54,7 +54,7 @@ class FlatDelete extends Component {
     }
 
     render() {
-        const { title, id, data, isLoading, resource, translate } = this.props;
+        const { title, data, isLoading, resource, translate } = this.props;
         const basePath = this.getBasePath();
 
         const resourceName = translate(`resources.${resource}.name`, {

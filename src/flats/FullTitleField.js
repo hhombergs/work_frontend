@@ -17,7 +17,7 @@ const FullTitleField = ({ record = {}, size = 85 }) => (
 
 FullTitleField.propTypes = {
     record: PropTypes.object,
-    size: PropTypes.string,
+    size: PropTypes.number,
 };
 
 export default FullTitleField;
