@@ -39,12 +39,7 @@ export const FlatCreate = props => (
     </Create>
 );
 
-const FlatTitle = ({ record }) => {
-    if (!record) {
-        return null;
-    }
-    return <FullTitleField record={record} size={32} />;
-};
+const FlatTitle = ({ record }) => (record ? <FullTitleField record={record} size={32} /> : null);
 
 FlatTitle.propTypes = {
     record: PropTypes.object,

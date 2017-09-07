@@ -2,7 +2,7 @@
 * @Author: hhombergs
 * @Date:   2017-09-04
 * @Last Modified by:   hhombergs
-* @Last Modified time: 2017-09-05
+* @Last Modified time: 2017-09-07
 */
 
 import { AUTH_LOGIN, AUTH_LOGOUT, AUTH_ERROR, AUTH_CHECK } from 'admin-on-rest';

@@ -12,12 +12,10 @@ const messages = {
     de: germanMessages,
 };
 
-const FlatApp = () => {
-    return (
-        <Admin authClient={authClient} restClient={myApiRestClient} title="Wohnung" locale="de" messages={messages}>
-            <Resource name="flat" options={{ label: 'Wohnung' }} edit={FlatEdit} remove={FlatDelete} show={FlatShow} list={FlatList} />
-        </Admin>
-    );
-};
+const FlatApp = () => (
+    <Admin authClient={authClient} restClient={myApiRestClient} title="Wohnung" locale="de" messages={messages}>
+        <Resource name="flato" options={{ label: 'Wohnung' }} edit={FlatEdit} remove={FlatDelete} show={FlatShow} list={FlatList} />
+    </Admin>
+);
 
 export default FlatApp;

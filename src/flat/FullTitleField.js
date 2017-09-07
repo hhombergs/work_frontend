@@ -2,7 +2,7 @@
 * @Author: hhombergs
 * @Date:   2017-08-29
 * @Last Modified by:   hhombergs
-* @Last Modified time: 2017-09-05
+* @Last Modified time: 2017-09-07
 */
 
 import React from 'react';
@@ -16,8 +16,8 @@ const FullTitleField = ({ record = {}, size = 85 }) => (
 );
 
 FullTitleField.propTypes = {
-    record: PropTypes.object.isRequired,
-    size: PropTypes.any.isRequired,
+    record: PropTypes.object,
+    size: PropTypes.number,
 };
 
 export default FullTitleField;

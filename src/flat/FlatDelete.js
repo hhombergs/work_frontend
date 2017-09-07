@@ -2,7 +2,7 @@
 * @Author: hhombergs
 * @Date:   2017-08-31
 * @Last Modified by:   hhombergs
-* @Last Modified time: 2017-09-05
+* @Last Modified time: 2017-09-07
 */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
@@ -38,10 +38,10 @@ class FlatDelete extends Component {
     handleSubmit(event) {
         event.preventDefault();
         const { push, data, showNotification } = this.props;
-        restClient(DELETE, 'flat', { id: data.id, data: data })
+        restClient(DELETE, 'flato', { id: data.id, data: data })
             .then(() => {
                 showNotification('Wohnung gelöscht');
-                push('/flat');
+                push('/flato');
             })
             .catch((e) => {
                 console.error(e);

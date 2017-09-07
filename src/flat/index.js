@@ -2,8 +2,8 @@ import React from 'react';
 import { CardActions } from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 import NavigationRefresh from 'material-ui/svg-icons/navigation/refresh';
-import PropTypes from 'prop-types';
 import { Datagrid, DateField, DateInput, DeleteButton, Edit, EditButton, EmailField, List, Show, ShowButton, SimpleForm, SimpleShowLayout, TextField, TextInput } from 'admin-on-rest';
+import PropTypes from 'prop-types';
 import FullTitleField from './FullTitleField';
 
 const cardActionStyle = {
@@ -23,7 +23,7 @@ const FlatEditActions = ({ basePath, data, refresh }) => (
 FlatEditActions.propTypes = {
     basePath: PropTypes.string,
     data: PropTypes.object,
-    refresh: PropTypes.function,
+    refresh: PropTypes.func,
 };
 
 const FlatShowActions = ({ basePath, data, refresh }) => (
@@ -37,8 +37,9 @@ const FlatShowActions = ({ basePath, data, refresh }) => (
 FlatShowActions.propTypes = {
     basePath: PropTypes.string,
     data: PropTypes.object,
-    refresh: PropTypes.function,
+    refresh: PropTypes.func,
 };
+
 
 const dateString = (v) => {
     if (isNaN(v)) return;
@@ -63,12 +64,7 @@ export const FlatList = props => (
     </List>
 );
 
-const FlatTitle = ({ record }) => {
-    if (!record) {
-        return null;
-    }
-    return <FullTitleField record={record} size={32} />;
-};
+const FlatTitle = ({ record }) => (record ? <FullTitleField record={record} size={32} /> : null);
 
 FlatTitle.propTypes = {
     record: PropTypes.object,
