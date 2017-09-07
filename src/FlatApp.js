@@ -14,7 +14,7 @@ const messages = {
 
 const FlatApp = () => (
     <Admin authClient={authClient} restClient={myApiRestClient} title="Wohnung" locale="de" messages={messages}>
-        <Resource name="flat" options={{ label: 'Wohnung' }} edit={FlatEdit} remove={FlatDelete} show={FlatShow} list={FlatList} />
+        <Resource name="flato" options={{ label: 'Wohnung' }} edit={FlatEdit} remove={FlatDelete} show={FlatShow} list={FlatList} />
     </Admin>
 );
 

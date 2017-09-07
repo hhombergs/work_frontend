@@ -5,7 +5,7 @@ import FlatApp from './FlatApp';
 import './index.css';
 
 let isMain = true;
-if (window.location.href.indexOf('/flat/') !== -1) {
+if (window.location.href.indexOf('/flato') !== -1) {
     isMain = false;
 }
 
