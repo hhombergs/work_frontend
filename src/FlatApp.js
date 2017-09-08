@@ -2,7 +2,7 @@ import 'babel-polyfill';
 import React from 'react';
 import { Admin, Resource } from 'admin-on-rest';
 import myApiRestClient from './restClient';
-import './App.css';
+import './styles/App.scss';
 import germanMessages from './i18n';
 import { FlatEdit, FlatShow, FlatList } from './flat';
 import FlatDelete from './flat/FlatDelete';

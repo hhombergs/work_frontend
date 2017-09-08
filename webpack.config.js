@@ -2,7 +2,7 @@
 * @Author: hhombergs
 * @Date:   2017-08-29
 * @Last Modified by:   hhombergs
-* @Last Modified time: 2017-09-01
+* @Last Modified time: 2017-09-08
 */
 
 var path = require('path');
@@ -32,6 +32,10 @@ module.exports = {
                 query: {
                     presets: ['react','es2015']
                 }
+            },
+            {
+                test: /\.scss$/,
+                loader: 'style-loader!css-loader!sass-loader?importLoaders=1'
             },
             {
                 test: /\.css$/,
