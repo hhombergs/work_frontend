@@ -5,10 +5,11 @@
   "main": "index.js",
   "scripts": {
     "start": "./node_modules/.bin/react-scripts start",
-    "dev": "http-server -a 127.0.0.1 -p 3000 & ./node_modules/.bin/webpack -w",
-    "build": "./node_modules/.bin/webpack",
+    "dev": "./node_modules/.bin/node-sass ./src/styles/main.scss -o ./public/dist & http-server -a 127.0.0.1 -p 3000 & ./node_modules/.bin/webpack -w",
+    "build": "./node_modules/.bin/node-sass ./src/styles/main.scss -o ./public/dist & ./node_modules/.bin/webpack",
     "test": "./node_modules/.bin/react-scripts test --env=jsdom",
     "eject": "./node_modules/.bin/react-scripts eject",
+    "build-sass": "./node_modules/.bin/node-sass ./src/styles/main.scss -o ./public/dist",
     "deploy": "./node_modules/.bin/gh-pages -d build"
   },
   "repository": {
