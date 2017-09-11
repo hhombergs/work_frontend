@@ -7,7 +7,7 @@
 
 import { GET_LIST, GET_ONE, CREATE, UPDATE, DELETE, fetchUtils } from 'admin-on-rest';
 
-const API_URL = 'http://127.0.0.1:8000';
+const API_URL = 'http://192.168.56.101';
 
 /**
  * @param {String} type One of the constants appearing at the top if this file, e.g. 'UPDATE'
