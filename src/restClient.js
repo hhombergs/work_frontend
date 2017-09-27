@@ -38,7 +38,7 @@ const convertRESTRequestToHTTP = (type, resource, params) => {
         url = `${API_URL}/${resource}/${params.id}`;
         break;
     case UPDATE:
-        url = `${API_URL}/${resource}/${params.id}/${params.data.token}`;
+        url = `${API_URL}/${resource}/${params.id}`;
         options.method = 'PUT';
         options.body = JSON.stringify(params.data);
         break;
@@ -48,7 +48,7 @@ const convertRESTRequestToHTTP = (type, resource, params) => {
         options.body = JSON.stringify(params.data);
         break;
     case DELETE:
-        url = `${API_URL}/${resource}/${params.id}/${params.data.token}`;
+        url = `${API_URL}/${resource}/${params.id}`;
         options.method = 'DELETE';
         break;
     default:
